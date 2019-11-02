@@ -14,6 +14,8 @@ To use autoloading mechanism, you must include `vendor/autoload.php` file in you
 
 ## Usage
 
+Post CRUD gives models that have create, read, update and delete methods. Main methods: `set_field()`, `get_field()`, `save()` and `delete()`
+
 #### Creating new post
 
 ```php
@@ -35,6 +37,8 @@ $model->save();
 All fields values should match WP Post table columns.
 
 #### Edit existing post
+
+Models will automatically load WP Post data if you instantiate them with ID.
 
 ```php
 <?php
@@ -113,6 +117,21 @@ $book = new Book();
 // Set up book data.
 $book->set_field('post_title', 'Revelation Space');
 $book->set_field('post_status', 'published');
+
+// Persist.
+$book->save();
+```
+
+## Meta fields
+
+Models can also handle metadata. Use `set_meta()` and `get_meta()` methods.
+
+```php
+<?php
+
+// Our book could use some meta data.
+$book->set_meta('author', 'Alastair Reynolds');
+$book->set_meta('rating', 5);
 
 // Persist.
 $book->save();
