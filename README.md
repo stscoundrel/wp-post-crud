@@ -12,6 +12,10 @@ Via Composer:
 
 To use autoloading mechanism, you must include `vendor/autoload.php` file in your code.
 
+## Issues & Contributing
+
+If you find a bug or feel something is wrong, submit an issue or a pull request. Read the instructions first.
+
 ## Usage
 
 Post CRUD gives models that have create, read, update and delete methods. Main methods: `set_field()`, `get_field()`, `save()` and `delete()`
