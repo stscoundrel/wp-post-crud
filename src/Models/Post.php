@@ -12,12 +12,13 @@ use Silvanus\PostCrud\AbstractCrud;
 /**
  * Default "post" model
  */
-class Post extends AbstractCrud {
+class Post extends AbstractCrud
+{
 
-	/**
-	 * Post type to be associated with class
-	 *
-	 * @var string
-	 */
-	protected $post_type = 'post';
+    /**
+     * Post type to be associated with class
+     *
+     * @var string
+     */
+    protected $post_type = 'post';
 }

@@ -12,12 +12,13 @@ use Silvanus\PostCrud\AbstractCrud;
 /**
  * WP "page" model
  */
-class Page extends AbstractCrud {
+class Page extends AbstractCrud
+{
 
-	/**
-	 * Post type to be associated with class
-	 *
-	 * @var string
-	 */
-	protected $post_type = 'page';
+    /**
+     * Post type to be associated with class
+     *
+     * @var string
+     */
+    protected $post_type = 'page';
 }
