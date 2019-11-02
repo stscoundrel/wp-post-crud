@@ -148,9 +148,12 @@ abstract class AbstractCrud {
 		// Changed fields.
 		$fields = $this->updated_fields;
 
-		// Append ID and post type.
-		$fields['ID'] = $this->get_id();
-		$fields['post_type'] = $this->get_post_type();
+		// Check if we have fields to update
+		if( !empty( $fields ) ):
+			// Append ID and post type.
+			$fields['ID'] = $this->get_id();
+			$fields['post_type'] = $this->get_post_type();
+		endif;
 
 		return $fields;
 	}
@@ -213,7 +216,11 @@ abstract class AbstractCrud {
 	 * Update a post
 	 */
 	public function update() {
-		$result = \wp_update_post( $this->get_updated_fields() );
+		$fields = $this->get_updated_fields();
+
+		if( !empty( $fields ) ):
+			$result = \wp_update_post( $fields );
+		endif;
 	}
 
 	/**
