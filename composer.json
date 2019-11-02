@@ -1,0 +1,20 @@
+{
+		"name": "silvanus/wp-post-crud",
+		"description": "Provides CRUD class for handling WP Post Types.",
+		"authors": [
+				{
+						"name": "Silvanus / Sampo Silvennoinen",
+						"email": "silvennoinen.sampo@gmail.com",
+						"homepage": "https://github.com/stscoundrel"
+				}
+		],
+		"support": {
+			"issues": "https://github.com/stscoundrel/wp-post-crud/issues"
+		},
+		"require": {},
+		"autoload": {
+	    "psr-4": {
+	      "Silvanus\\PostCrud\\": "src/"
+	    }
+	  }
+}
