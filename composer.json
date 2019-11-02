@@ -1,6 +1,6 @@
 {
 		"name": "silvanus/wp-post-crud",
-		"description": "Provides CRUD class for handling WP Post Types.",
+		"description": "Provides class class for handling CRUD operations on WP Posts",
 		"authors": [
 				{
 						"name": "Silvanus / Sampo Silvennoinen",

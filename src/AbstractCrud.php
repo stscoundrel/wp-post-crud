@@ -39,6 +39,15 @@ abstract class AbstractCrud {
 	protected $updated_fields;
 
 	/**
+	 * Post Meta fields
+	 * Key / value pairs
+	 * Should match Post Meta Table key / values.
+	 *
+	 * @var array
+	 */
+	protected $meta_fields;
+
+	/**
 	 * Post type
 	 *
 	 * @var string
@@ -135,6 +144,13 @@ abstract class AbstractCrud {
 		$fields['id'] = $this->get_id();
 		$fields['post_type'] = $this->get_post_type();
 
+		// Append meta fields, if any.
+		if( !empty( $this->meta_fields ) ):
+			foreach( $this->meta_fields as $meta_key => $meta_value ):
+				$fields['meta_input'][$meta_key] = $meta_value;
+			endforeach;
+		endif;
+
 		return $fields;
 	}
 
@@ -159,6 +175,35 @@ abstract class AbstractCrud {
 	}
 
 	/**
+	 * Set meta key / value field
+	 *
+	 * @param string $key that matches Post DB column.
+	 * @param mixed $value to be later saved.
+	 */
+	public function set_meta( string $key, $value ) {
+		$this->meta_fields[$key] = $value;
+	}
+
+	/**
+	 * Get meta value
+	 * --> See if key exists on props
+	 * --> If not, return from DB
+	 *
+	 * @param string $key that matches Post Meta DB key column.
+	 * @return mixed $meta from props or DB.
+	 */
+	public function get_meta( string $key  ) {
+
+		if( array_key_exists( $key , $this->meta_fields) ):
+			$meta = $this->meta_fields['key'];
+		else:
+			$meta = \get_post_meta( $this->get_id(), $key, true );
+		endif;
+
+		return $meta;
+	}
+
+	/**
 	 * Persist changes to database
 	 * --> If given ID, update post
 	 * --> If no ID, create new post
@@ -177,6 +222,7 @@ abstract class AbstractCrud {
 	 * Create a post
 	 */
 	public function create() {
+		var_dump( $this->get_fields() );
 		$result = \wp_insert_post( $this->get_fields() );
 	}
 
@@ -220,6 +266,14 @@ abstract class AbstractCrud {
 
 		if( !empty( $fields ) ):
 			$result = \wp_update_post( $fields );
+		endif;
+
+		// Update meta fields.
+		if( !empty( $this->meta_fields ) ):
+			var_dump('updating fields');
+			foreach( $this->meta_fields as $meta_key => $meta_value ):
+				update_post_meta( $this->get_id(), $meta_key, $meta_value );
+			endforeach;
 		endif;
 	}
 
