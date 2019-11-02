@@ -1,6 +1,7 @@
 {
 	"name": "silvanus/wp-post-crud",
 	"description": "Provides class class for handling CRUD operations on WP Posts",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Silvanus / Sampo Silvennoinen",

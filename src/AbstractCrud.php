@@ -236,7 +236,6 @@ abstract class AbstractCrud
      */
     public function create()
     {
-        var_dump($this->get_fields());
         $result = \wp_insert_post($this->get_fields());
     }
 
@@ -285,7 +284,6 @@ abstract class AbstractCrud
 
         // Update meta fields.
         if (!empty($this->meta_fields)) :
-            var_dump('updating fields');
             foreach ($this->meta_fields as $meta_key => $meta_value) :
                 update_post_meta($this->get_id(), $meta_key, $meta_value);
             endforeach;
