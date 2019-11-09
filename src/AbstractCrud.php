@@ -92,6 +92,90 @@ abstract class AbstractCrud
     }
 
     /**
+     * Set title property
+     * Shorthand for set field
+     *
+     * @param string $title of post.
+     */
+    public function set_title($title)
+    {
+        $this->set_field('post_title', $title);
+    }
+
+    /**
+     * Get title property
+     *
+     * @return int $id of post.
+     */
+    public function get_title()
+    {
+        return $this->fields['post_title'];
+    }
+
+    /**
+     * Set content property
+     * Shorthand for set field
+     *
+     * @param string $content of post.
+     */
+    public function set_content($content)
+    {
+        $this->set_field('post_content', $content);
+    }
+
+    /**
+     * Get content property
+     *
+     * @return int $id of post.
+     */
+    public function get_content()
+    {
+        return $this->fields['post_content'];
+    }
+
+    /**
+     * Set excerpt property
+     * Shorthand for set field
+     *
+     * @param string $excerpt of post.
+     */
+    public function set_excerpt($excerpt)
+    {
+        $this->set_field('post_excerpt', $excerpt);
+    }
+
+    /**
+     * Get excerpt property
+     *
+     * @return int $id of post.
+     */
+    public function get_excerpt()
+    {
+        return $this->fields['post_excerpt'];
+    }
+
+    /**
+     * Set post status property
+     * Shorthand for set field
+     *
+     * @param string $status of post.
+     */
+    public function set_status($status)
+    {
+        $this->set_field('post_status', $status);
+    }
+
+    /**
+     * Get status property
+     *
+     * @return int $id of post.
+     */
+    public function get_status()
+    {
+        return $this->fields['post_status'];
+    }
+
+    /**
      * Set post type property
      * Defines which post type to handle
      *
