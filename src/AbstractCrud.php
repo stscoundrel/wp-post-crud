@@ -237,6 +237,10 @@ abstract class AbstractCrud
     public function create()
     {
         $result = \wp_insert_post($this->get_fields());
+
+        if (!is_wp_error($post)) :
+            $this->set_id($result);
+        endif;
     }
 
     /**
