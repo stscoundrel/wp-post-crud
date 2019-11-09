@@ -126,7 +126,7 @@ abstract class AbstractCrud
     /**
      * Get content property
      *
-     * @return int $id of post.
+     * @return string $post_content of post.
      */
     public function get_content()
     {
@@ -147,7 +147,7 @@ abstract class AbstractCrud
     /**
      * Get excerpt property
      *
-     * @return int $id of post.
+     * @return string $post_excerpt of post.
      */
     public function get_excerpt()
     {
@@ -168,11 +168,32 @@ abstract class AbstractCrud
     /**
      * Get status property
      *
-     * @return int $id of post.
+     * @return string $post_status of post.
      */
     public function get_status()
     {
         return $this->fields['post_status'];
+    }
+
+    /**
+     * Set slug property
+     * Shorthand for set field
+     *
+     * @param string $slug of post.
+     */
+    public function set_slug($slug)
+    {
+        $this->set_field('post_name', $slug);
+    }
+
+    /**
+     * Get slug property
+     *
+     * @return string $post_name of post.
+     */
+    public function get_slug()
+    {
+        return $this->fields['post_name'];
     }
 
     /**
