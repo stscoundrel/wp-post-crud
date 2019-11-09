@@ -140,3 +140,26 @@ $book->set_meta('rating', 5);
 // Persist.
 $book->save();
 ```
+## Shorthand methods
+
+There are shorthand getters & setters for the most common use cases. Instead of using `set_field($key, $value)` or `get_field($value)`, you can use the following:
+
+```php
+<?php
+
+// Set values using shorthands.
+$model->set_title('Lorem ipsum');
+$model->set_content('Dolor sit igitur, dolor sit amet.');
+$model->set_excerpt('Dolor sit igitur');
+
+// Access values through shorthands
+echo $model->get_title();
+echo $model->get_excerpt();
+
+// Persist.
+$book->save();
+```
+
+Other shorthands are: `set_status($status)`, `get_status()`, `set_slug($slug)` and `get_slug()`. 
+
+Under the hood AbstractCrud class will call `set_field()` and `get_field()` methods.
