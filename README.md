@@ -8,7 +8,7 @@ Aim is to abstract away awkward parts of creating, handling and deleting Posts p
 
 Via Composer:
 
-`composer require stscoundrel/wp-post-crud`
+`composer require silvanus/wp-post-crud`
 
 To use autoloading mechanism, you must include `vendor/autoload.php` file in your code.
 
